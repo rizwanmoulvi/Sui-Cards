@@ -24,15 +24,15 @@ const App: FC = () => {
 
   return (
     <StrictMode>
-      <ThemeProvider>
-        <SuiProvider
-          customNetworkConfig={networkConfig}
-          defaultNetwork={ENetwork.TESTNET}
-          walletAutoConnect={true}
-          walletStashedName={APP_NAME}
-          themeSettings={themeSettings}
-        >
-          <BrowserRouter>
+      <BrowserRouter basename="/">
+        <ThemeProvider>
+          <SuiProvider
+            customNetworkConfig={networkConfig}
+            defaultNetwork={ENetwork.TESTNET}
+            walletAutoConnect={true}
+            walletStashedName={APP_NAME}
+            themeSettings={themeSettings}
+          >
             <Routes>
               <Route index path="/" element={<IndexPage />} />
               <Route path="/dashboard" element={<IndexPage />} />
@@ -43,9 +43,9 @@ const App: FC = () => {
               <Route path="/spend" element={<SpendPage />} />
               <Route path="/history" element={<HistoryPage />} />
             </Routes>
-          </BrowserRouter>
-        </SuiProvider>
-      </ThemeProvider>
+          </SuiProvider>
+        </ThemeProvider>
+      </BrowserRouter>
     </StrictMode>
   )
 }
