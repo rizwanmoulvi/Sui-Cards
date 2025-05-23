@@ -3,7 +3,30 @@ import { Button, Dialog, Flex, Text } from '@radix-ui/themes'
 import { useCallback, useState } from 'react'
 import { type EventId } from '@mysten/sui/client'
 import { CONTRACT_PACKAGE_VARIABLE_NAME } from '~~/config/network'
-import { formatDistance } from 'date-fns'
+// Custom formatDistance function instead of using date-fns
+function formatDistance(date: Date, baseDate: Date, options?: { addSuffix: boolean }): string {
+  const diffMs = baseDate.getTime() - date.getTime();
+  const diffSec = Math.round(diffMs / 1000);
+  const diffMin = Math.round(diffSec / 60);
+  const diffHour = Math.round(diffMin / 60);
+  const diffDay = Math.round(diffHour / 24);
+  const diffMonth = Math.round(diffDay / 30);
+  const diffYear = Math.round(diffDay / 365);
+
+  let result = '';
+  if (diffSec < 60) result = `${diffSec} seconds`;
+  else if (diffMin < 60) result = `${diffMin} minutes`;
+  else if (diffHour < 24) result = `${diffHour} hours`;
+  else if (diffDay < 30) result = `${diffDay} days`;
+  else if (diffMonth < 12) result = `${diffMonth} months`;
+  else result = `${diffYear} years`;
+
+  if (options?.addSuffix) {
+    result = `${result} ago`;
+  }
+
+  return result;
+}
 import useNetworkConfig from '~~/hooks/useNetworkConfig'
 
 interface CardData {

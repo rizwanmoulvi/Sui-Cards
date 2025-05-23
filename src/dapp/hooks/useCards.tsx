@@ -1,6 +1,7 @@
 import { useCurrentAccount, useSuiClient } from '@mysten/dapp-kit'
 import { useCallback, useEffect, useState } from 'react'
-import { SuiObjectData } from '@mysten/sui.js/client'
+// Using any type since we don't need the specific SuiObjectData type
+type SuiObjectData = any
 
 // Define the Card type based on the fields used in the ManageCardsPage
 export interface Card {

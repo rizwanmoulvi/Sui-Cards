@@ -58,7 +58,8 @@ const IndexPage = () => {
   const [totalBalance, setTotalBalance] = useState('0.00')
   const [totalSpent, setTotalSpent] = useState('0.00')
   const [transactions, setTransactions] = useState<Transaction[]>([])
-  const [cardStats, setCardStats] = useState<CardStats[]>([])
+  // Used for internal tracking but not displayed in UI
+  const [cardStats, _setCardStats] = useState<CardStats[]>([])
   const [refreshKey, setRefreshKey] = useState(0)
   
   // Format date for display
@@ -152,7 +153,7 @@ const IndexPage = () => {
               id: event.id.txDigest + event.id.eventSeq,
               type: eventType,
               cardId: cardId,
-              timestamp: event.timestampMs,
+              timestamp: event.timestampMs || new Date().toISOString(),
               amount: parsedJson.amount ? (Number(parsedJson.amount) / 1000000000).toFixed(4) : '0',
               digest: event.id.txDigest
             }
@@ -188,7 +189,7 @@ const IndexPage = () => {
       
       // Update state
       setTransactions(allTransactions)
-      setCardStats(stats)
+      _setCardStats(stats)
       
       // Convert balance from MIST to SUI (1 SUI = 10^9 MIST)
       const totalBalanceSui = totalBalanceAmount / 1_000_000_000

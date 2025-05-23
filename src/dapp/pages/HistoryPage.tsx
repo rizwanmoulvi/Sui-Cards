@@ -263,7 +263,7 @@ const HistoryPage: React.FC = () => {
                             >
                               {getTransactionIcon(transaction.type)}
                             </Box>
-                            <Flex direction="column" grow="1" gap="1">
+                            <Flex direction="column" className="flex-grow" gap="1">
                               <Flex justify="between" align="start">
                                 <Box>
                                   <Text size="3" weight="bold" style={{ textTransform: 'capitalize' }} color="gray">

@@ -1,6 +1,6 @@
 import { Heading, Text, Flex } from '@radix-ui/themes'
 import CreateCardForm from '~~/dapp/components/CreateCardForm'
-import CardList from '~~/dapp/components/CardList'
+// CardList component is available but not used in this page
 import Header from '../components/Header'
 
 const CardPage = () => {

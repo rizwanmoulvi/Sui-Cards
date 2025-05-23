@@ -1,11 +1,8 @@
-import { useCurrentAccount } from '@mysten/dapp-kit'
 import { SuiTransactionBlockResponse } from '@mysten/sui/client'
 import { SuiSignAndExecuteTransactionOutput } from '@mysten/wallet-standard'
-import { Button } from '@radix-ui/themes'
 import useTransact from '@suiware/kit/useTransact'
-import { MouseEvent, useState } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router'
-import CustomConnectButton from '~~/components/CustomConnectButton'
 import {
   CONTRACT_PACKAGE_VARIABLE_NAME,
   EXPLORER_URL_VARIABLE_NAME,
@@ -16,7 +13,6 @@ import { notification } from '~~/helpers/notification'
 import useNetworkConfig from '~~/hooks/useNetworkConfig'
 
 const CreateCounterForm = () => {
-  const currentAccount = useCurrentAccount()
   const { useNetworkVariable } = useNetworkConfig()
   const packageId = useNetworkVariable(CONTRACT_PACKAGE_VARIABLE_NAME)
   const [notificationId, setNotificationId] = useState<string>()
@@ -48,9 +44,10 @@ const CreateCounterForm = () => {
     },
   })
 
-  const handleCreateCounterClick = (e: MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault()
-
+  // Function for future implementation
+  // Suppressing the unused variable warning with ts-ignore
+  // @ts-ignore
+  const createCounter = () => {
     create(prepareCreateCounterTransaction(packageId))
   }
 
