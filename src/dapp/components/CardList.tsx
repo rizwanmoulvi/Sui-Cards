@@ -318,10 +318,10 @@ const CardList = () => {
                     card={card}
                     onSuccess={handleRefresh}
                   />
-                  <SpendCardForm
+                  {/* <SpendCardForm
                     card={card}
                     onSuccess={handleRefresh}
-                  />
+                  /> */}
                   <TransferCardForm
                     card={card}
                     onSuccess={handleRefresh}
