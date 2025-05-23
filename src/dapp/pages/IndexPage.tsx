@@ -59,7 +59,8 @@ const IndexPage = () => {
   const [totalSpent, setTotalSpent] = useState('0.00')
   const [transactions, setTransactions] = useState<Transaction[]>([])
   // Used for internal tracking but not displayed in UI
-  const [cardStats, _setCardStats] = useState<CardStats[]>([])
+  // Using underscore prefix to indicate intentionally unused variables
+  const [_cardStats, _setCardStats] = useState<CardStats[]>([])
   const [refreshKey, setRefreshKey] = useState(0)
   
   // Format date for display
