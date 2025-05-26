@@ -132,7 +132,7 @@ const TransferCardForm = ({ card, onSuccess }: TransferCardFormProps) => {
         disabled={!card.isActive || card.balance <= 0}
       >
         <SendHorizontal size={16} />
-        Transfer
+        Spend
       </button>
 
       {isOpen && (
@@ -140,7 +140,7 @@ const TransferCardForm = ({ card, onSuccess }: TransferCardFormProps) => {
           <div className="bg-[#1a1a1a] rounded-2xl border border-white/10 shadow-xl w-full max-w-md">
             <div className="flex items-center justify-between p-6 border-b border-white/10">
               <h3 className="text-xl font-semibold text-white">
-                Transfer from Card
+                Spend from Card
               </h3>
               <button
                 onClick={() => setIsOpen(false)}
@@ -197,7 +197,7 @@ const TransferCardForm = ({ card, onSuccess }: TransferCardFormProps) => {
                 
                 <div className="mb-4">
                   <label htmlFor="transfer-amount" className="block mb-2 text-white/80 text-sm">
-                    Transfer Amount (SUI)
+                    Spend Amount (SUI)
                   </label>
                   <div className="relative">
                     <input
