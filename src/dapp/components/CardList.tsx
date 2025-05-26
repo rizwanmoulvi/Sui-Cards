@@ -4,7 +4,6 @@ import { Button, Flex, Heading, Text } from '@radix-ui/themes'
 import CustomConnectButton from '~~/components/CustomConnectButton'
 import DepositCardForm from './DepositCardForm'
 import WithdrawForm from './WithdrawForm'
-import SpendCardForm from './SpendCardForm'
 import TransferCardForm from './TransferCardForm'
 import {
   CONTRACT_PACKAGE_VARIABLE_NAME,

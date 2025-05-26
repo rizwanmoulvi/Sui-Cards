@@ -119,7 +119,8 @@ const WithdrawForm = ({ card, onSuccess }: WithdrawFormProps) => {
       console.log('- Withdraw amount:', withdrawAmountNum, 'SUI')
       
       // Process withdrawal with our enhanced transaction helper
-      const tx = prepareWithdrawTransaction(packageId, card.id, withdrawAmount)
+      // Pass the numeric value directly to avoid string-to-number conversion issues
+      const tx = prepareWithdrawTransaction(packageId, card.id, withdrawAmountNum)
       withdraw(tx)
     } catch (error) {
       console.error('Error preparing withdraw transaction:', error)
